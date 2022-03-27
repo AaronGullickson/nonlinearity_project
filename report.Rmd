@@ -19,7 +19,7 @@ load(here("output","worldbank.RData"))
 In this report, you should explore the relationship between GDP per capita and CO2 emissions per capita in a country using 2018 data from the World Bank. The analytical dataset is named `worldbank` and has only these two variables. You should focus on the following issues:
 
 * Addressing non-linearity in the relationship between these two variables. 
-* Addressing iid violations such as heteroskadasticity (watch for cone shapes!).
+* Addressing iid violations such as heteroskedasticity (watch for cone shapes!).
 
 In your analysis, you should treat GDP per capita as the independent variable (i.e. the variable on the x-axis). Your analysis should include:
 
