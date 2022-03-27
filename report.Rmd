@@ -1,0 +1,29 @@
+---
+title: "Nonlinearity Assignment for Soc 413/513"
+author: "Your Name Here"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, 
+                      error = FALSE)
+# load required libraries
+source("check_packages.R")
+```
+
+```{r load-data, include=FALSE}
+# load the analytical datam named `worldbank`
+load(here("output","worldbank.RData"))
+```
+
+In this report, you should explore the relationship between GDP per capita and CO2 emissions per capita in a country using 2018 data from the World Bank. The analytical dataset is named `worldbank` and has only these two variables. You should focus on the following issues:
+
+* Addressing non-linearity in the relationship between these two variables. 
+* Addressing iid violations such as heteroskadasticity (watch for cone shapes!).
+
+In your analysis, you should treat GDP per capita as the independent variable (i.e. the variable on the x-axis). Your analysis should include:
+
+* Graphical exploration of the relationship, and text description of what this graphical exploration reveals.
+* A final model which bests fit the underlying functional form and a description of what that model tells you about the relationship.
+
+You should create new code chunks as need to do your analysis. Use one code chunk per figure. 
