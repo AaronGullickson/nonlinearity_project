@@ -1,0 +1,74 @@
+---
+title: "Nonlinearity Assignment for Soc 413/513"
+author: "Your Name Here"
+format: pdf
+execute:
+  echo: true
+  message: false
+  warning: false
+  error: false
+---
+
+```{r}
+#| label: load-libraries
+#| include: false
+source("check_packages.R")
+```
+
+```{r}
+#| label: load-data
+#| include: false
+load(here("output","worldbank.RData"))
+```
+
+In this report, you should explore the relationship between GDP per capita and CO2 emissions per capita in a country using 2018 data from the World Bank. The analytical dataset is named `worldbank` and has only these two variables. You should focus on the following issues:
+
+* Addressing non-linearity in the relationship between these two variables. 
+* Addressing iid violations such as heteroskedasticity (watch for cone shapes!).
+
+In your analysis, you should treat GDP per capita as the independent variable (i.e. the variable on the x-axis). Your analysis should include:
+
+* Graphical exploration of the relationship, and text description of what this graphical exploration reveals.
+* A final model which bests fit the underlying functional form and a description of what that model tells you about the relationship.
+
+You should create new code chunks as need to do your analysis. Use one code chunk per figure. 
+
+Below, I provide some starter code chunks for making a figure and a model table, but you should adjust as needed for your case.
+
+```{r}
+#| label: fig-template
+#| fig-cap: A Caption
+
+# Code for the figure below. You should change the label from "fig-template" to
+# something relevant but it should start with "fig-". You can then reference
+# this figure in the tex with @fig-whatever-you-called-it
+
+# Each figure should go in a separate code chunk.
+# replace this code with a real figure
+ggplot(mtcars, aes(x=cyl, y=mpg))+
+  geom_point()+
+  theme_bw()
+```
+
+
+```{r}
+#| label: tbl-reg
+#| tbl-cap: A Caption
+#| results: asis
+
+# build your models here - change these
+model1 <- lm(mpg~cyl+disp, data=mtcars)
+model2 <- lm(mpg~cyl+disp+hp, data=mtcars)
+model3 <- lm(mpg~cyl+disp+hp+wt, data=mtcars)
+
+#to print to screen replace texreg with screenreg
+texreg(list(model1, model2, model3),
+       #uncomment next line to add nice labels to independent variables
+       #custom.coef.names = c("Covariate labels here"),
+       digits = 3,
+       caption.above=TRUE, 
+       include.rsquared=TRUE,
+       include.adjrs=FALSE,
+       include.nobs=TRUE,
+       include.rmse=FALSE)
+```
