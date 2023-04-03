@@ -2,7 +2,6 @@
 # CO2 emissions per capita and GDP per capita in 2018
 
 # Load libraries ----------------------------------------------------------
-
 source("check_packages.R")
 
 
@@ -25,7 +24,7 @@ worldbank <- read_csv(here("input",
   # rename the variables to something more intuitive
   rename(gdpcap = NY.GDP.PCAP.KD, co2cap = EN.ATM.CO2E.PC) %>%
   # drop any missing values
-  na.omit()
+  drop_na()
 
 # Save the data -----------------------------------------------------------
 
